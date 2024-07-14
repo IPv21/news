@@ -21,6 +21,9 @@ useEffect(() => {
   const fetchNews = async () => {
     const url = `https://gnews.io/api/v4/top-headlines?category=general&lang=en&apikey=0b78156c69708cbada67624177915992`;
     const response = await axios.get(url);
+    setHeadline(fetchNews[0]);
+    const fetchedNews = response.data.articles;
+    console.log(fetchedNews[0]);
     console.log(response);
   };
 
@@ -47,15 +50,19 @@ useEffect(() => {
             <a href="#" className="nav-link">Nation</a>
           </div>
         </nav>
-        <div className='news-section'>
-          <div className='headline'>
-            <img src={demoImg} alt="Demo News" />
-            <h3> This is the H3 Demo Img Headline</h3>
+        <div className="news-section">
+      {headline && (
+        <div className="headline" onClick={() => handleArticleClick(headline)}>
+          <img src={headline.image || noImg} alt={headline.title} />
+          <h2 className="headline-title">{headline.title}</h2>
+        </div>
+      )}
+    </div>
           <div className='news-grid-item'>
             <img src={techImg} alt="Headline Image" />
             <h2 className='headline-title'>E plorum Bun u In em'</h2>
           </div>
-          
+        
           <div className='news-grid-item'>
              <img src={sportsImg} alt="Sports News" />
             <h3>E plorunpumpus thius is the news world h3</h3>
@@ -82,19 +89,17 @@ useEffect(() => {
           </div>
 
           <div className='news-grid-item'>
-             <img src={entertainmentImg} alt="Entertainment News" />
-            <h3>This is the Entertinent news h3 headline</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer>
-      <p className='copyright'>
-        <span>NEWS APP SPAN</span>
-        <p>&copy; All Rights Reserved. By Matthew Shuman.</p>
-      </p>
-    </footer>
+          <img src={entertainmentImg} alt="Entertainment News" />
+    <h3>This is the Entertainment news h3 headline</h3>
   </div>
+  <footer>
+    <div className='copyright'>
+      <span>NEWS APP SPAN</span>
+      <div>&copy; All Rights Reserved. By Matthew Shuman.</div>
+    </div>
+  </footer>
+</div>
+</div>
 
   );
 };
