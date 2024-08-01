@@ -33,7 +33,6 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       const url = `https://gnews.io/api/v4/top-headlines?category=${selectedCategory}&lang=en&apikey=9c404c552f6102517c9c531e4d8475da`
-
       const response = await axios.get(url)
 
       const fetchedNews = response.data.articles
@@ -68,7 +67,7 @@ const News = () => {
   return (
     <div className="news-app">
       <div className="news-header">
-        <h1 className="logo">News App</h1>
+        <h1 className="logo">News of the World</h1>
       </div>
       <div className="news-content">
         <nav className="navbar">
@@ -107,13 +106,13 @@ const News = () => {
             ))}
           </div>
         </div>
-        <NewsModal show={showModal} article={selectedArticle} onClose={() => setShowModal(false)} /> 
+        <NewsModal show={showModal} article={selectedArticle} onClose={() => setShowModal(false)} />
       </div>
       <footer>
         <p className="copyright">
           <span>News App</span>
         </p>
-        <p>&copy; All Rights Reserved. By Code And Create</p>
+        <p>&copy; All Rights Reserved. By Matthew Shuman</p>
       </footer>
     </div>
   )
