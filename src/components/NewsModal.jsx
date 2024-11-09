@@ -32,7 +32,10 @@ const NewsModal = ({ show, article, onClose }) => {
     }
                                             </p>
                                             <p className='modal-content-text'>{article.content}</p>
-                                            <a href={article.url} className='read-more-link'>Read More</a> </>
+                                            <a href={article.url} 
+                                             target='_blank'
+        rel='noreferrer'
+        className='read-more-link'>Read More</a> </>
                     )}
                 </div>
             </div>
