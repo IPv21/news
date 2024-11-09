@@ -2,7 +2,7 @@
   "name": "news",
   "private": true,
   "version": "0.1.0",
-  "homepage": "https://gitname.github.io/news",
+  "homepage": "https://ipv21.github.io/news",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
